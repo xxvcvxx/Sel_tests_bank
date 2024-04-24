@@ -20,6 +20,6 @@ public class TestBase {
 
     @AfterMethod
     public void baseAfterMethod() {
-        driver.quit();
+        //driver.quit();
     }
 }

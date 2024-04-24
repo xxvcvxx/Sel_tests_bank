@@ -23,19 +23,20 @@ public class MainPage extends Header {
     @FindBy(css = "body > div > div > div.ng-scope > div > div.borderM.box.padT20 > div:nth-child(3) > button")
     private WebElement bankManagerButton;
 
+    public ManagerPage goToManagerPage() {
+        bankManagerButton.click();
+        return new ManagerPage(driver);
+    }
 
-    public MainPage assertHomeButtonText() {
+    public void assertHomeButtonText() {
         Assert.assertEquals(homeButton.getText(), homeButtonText);
-        return this;
     }
 
-    public MainPage assertCustomerLoginButtonText() {
+    public void assertCustomerLoginButtonText() {
         Assert.assertEquals(customerLoginButton.getText(), customerLoginButtonText);
-        return this;
     }
 
-    public MainPage assertBankManagerButtonText() {
+    public void assertBankManagerButtonText() {
         Assert.assertEquals(bankManagerButton.getText(), bankManagerLoginText);
-        return this;
     }
 }
