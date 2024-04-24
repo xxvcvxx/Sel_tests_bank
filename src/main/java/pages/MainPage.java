@@ -6,20 +6,16 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-public class MainPage {
-    protected WebDriver driver;
-    private final String titleText = "XYZ Bank";
+public class MainPage extends Header {
+
     private final String homeButtonText = "Home";
     private final String customerLoginButtonText = "Customer Login";
     private final String bankManagerLoginText = "Bank Manager Login";
 
     public MainPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
-    @FindBy(css = ".box>strong")
-    private WebElement title;
     @FindBy(css = ".box.mainhdr button.btn.home")
     private WebElement homeButton;
     @FindBy(css = ".ng-scope button.btn.btn-primary.btn-lg ")
@@ -27,10 +23,6 @@ public class MainPage {
     @FindBy(css = "body > div > div > div.ng-scope > div > div.borderM.box.padT20 > div:nth-child(3) > button")
     private WebElement bankManagerButton;
 
-    public MainPage assertTitle() {
-        Assert.assertEquals(title.getText(), titleText);
-        return this;
-    }
 
     public MainPage assertHomeButtonText() {
         Assert.assertEquals(homeButton.getText(), homeButtonText);
