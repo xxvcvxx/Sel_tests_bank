@@ -8,12 +8,12 @@ public class ManagerPage extends Header {
     public ManagerPage(WebDriver driver) {
         super(driver);
     }
-//dlaczego selektor css nei dziala ?
+
+    //dlaczego selektor css nei dziala ?
     @FindBy(xpath = "/html/body/div/div/div[2]/div/div[1]/button[1]")
     public WebElement addCustomerButton;
 
-    public ManagerAddCustomerPage addCustomer()
-    {
+    public ManagerAddCustomerPage addCustomer() {
         addCustomerButton.click();
         return new ManagerAddCustomerPage((driver));
     }

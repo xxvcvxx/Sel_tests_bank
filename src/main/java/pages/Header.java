@@ -14,9 +14,16 @@ public class Header {
         PageFactory.initElements(driver, this);
     }
 
+    private final String homeButtonText = "Home";
     private final String titleText = "XYZ Bank";
     @FindBy(css = ".box>strong")
     private WebElement title;
+    @FindBy(css = ".box.mainhdr button.btn.home")
+    protected WebElement homeButton;
+
+    public void assertHomeButtonText() {
+        Assert.assertEquals(homeButton.getText(), homeButtonText);
+    }
 
     public Header assertTitle() {
         Assert.assertEquals(title.getText(), titleText);
